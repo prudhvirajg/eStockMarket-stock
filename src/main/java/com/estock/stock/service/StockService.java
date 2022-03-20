@@ -7,6 +7,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+
 import com.estock.stock.dao.CompanyDao;
 import com.estock.stock.dao.StockDao;
 import com.estock.stock.exceptions.ApplicationException;
@@ -49,10 +50,15 @@ public class StockService {
 		companyDao.save(company);
 	}
 
+
 	public List<StockPrices> getStockPricesList(Integer companycode, Date startdate, Date enddate) {
 		// TODO Auto-generated method stub
+
 		log.info("getting all stock prices for {}",companycode);
 		return stockDao.findAllByIdAndDateBetween(companycode, startdate, enddate);
 	}
-
 }
+
+
+
+

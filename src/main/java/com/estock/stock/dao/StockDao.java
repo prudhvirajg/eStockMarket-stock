@@ -18,5 +18,4 @@ public interface StockDao extends JpaRepository<Stock, Integer> {
 	List<StockPrices> findAllByIdAndDateBetween(Integer companycode, Date startdate, Date enddate);
 	
 	
-
 }

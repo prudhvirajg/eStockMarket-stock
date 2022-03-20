@@ -35,6 +35,8 @@ public class StockController {
 		return new ResponseEntity<String>("added stock price for company: " + companycode, HttpStatus.CREATED);
 	}
 
+	
+	
 	// date format : 2022-03-19
 	@GetMapping(value = "stock/get/{companycode}/{startdate}/{enddate}")
 	public List<StockPrices> getStockPriceList(@PathVariable Integer companycode, @PathVariable Date startdate,
