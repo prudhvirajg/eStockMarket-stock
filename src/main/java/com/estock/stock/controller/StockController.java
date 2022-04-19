@@ -6,6 +6,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -25,7 +26,7 @@ import lombok.extern.slf4j.Slf4j;
 public class StockController {
 	@Autowired
 	StockService stockservice;
-
+	@CrossOrigin
 	@PostMapping(value = "/stock/add/{companycode}", consumes = "application/json")
 	public ResponseEntity<String> addStockPrice(@PathVariable Integer companycode, @RequestBody Stock request) {
 		log.info("Companycode :" + companycode);
@@ -38,6 +39,7 @@ public class StockController {
 	
 	
 	// date format : 2022-03-19
+	@CrossOrigin
 	@GetMapping(value = "stock/get/{companycode}/{startdate}/{enddate}")
 	public List<StockPrices> getStockPriceList(@PathVariable Integer companycode, @PathVariable Date startdate,
 			@PathVariable Date enddate) {
