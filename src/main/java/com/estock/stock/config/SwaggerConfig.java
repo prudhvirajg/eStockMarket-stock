@@ -13,5 +13,4 @@ public class SwaggerConfig {
 		return new OpenAPI().info(new Info().title("eStock Market").description("OpenAPI").version("v1.0"));
 	}
 
-
 }

@@ -26,6 +26,7 @@ import lombok.extern.slf4j.Slf4j;
 public class StockController {
 	@Autowired
 	StockService stockservice;
+
 	@CrossOrigin
 	@PostMapping(value = "/stock/add/{companycode}", consumes = "application/json")
 	public ResponseEntity<String> addStockPrice(@PathVariable Integer companycode, @RequestBody Stock request) {
@@ -36,8 +37,6 @@ public class StockController {
 		return new ResponseEntity<String>("added stock price for company: " + companycode, HttpStatus.CREATED);
 	}
 
-	
-	
 	// date format : 2022-03-19
 	@CrossOrigin
 	@GetMapping(value = "stock/get/{companycode}/{startdate}/{enddate}")

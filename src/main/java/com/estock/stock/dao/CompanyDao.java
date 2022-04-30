@@ -5,8 +5,6 @@ import org.springframework.stereotype.Repository;
 
 import com.estock.stock.model.Company;
 
-
-
 @Repository
 public interface CompanyDao extends JpaRepository<Company, Integer> {
 
