@@ -25,7 +25,7 @@ import lombok.extern.slf4j.Slf4j;
 @RequestMapping("/api/v1.0/market")
 public class StockController {
 	@Autowired
-	StockService stockservice;
+	private StockService stockservice;
 
 	@CrossOrigin
 	@PostMapping(value = "/stock/add/{companycode}", consumes = "application/json")
