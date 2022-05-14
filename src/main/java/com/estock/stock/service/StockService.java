@@ -15,7 +15,6 @@ import com.estock.stock.model.Company;
 import com.estock.stock.model.Stock;
 import com.estock.stock.model.StockPrices;
 
-import io.micrometer.core.annotation.Timed;
 import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
@@ -26,7 +25,7 @@ public class StockService {
 	@Autowired
 	CompanyDao companyDao;
 	
-	@Timed(value = "addStockPrice.time", description = "Time taken to addStockPrice")
+	//@Timed(value = "addStockPrice.time", description = "Time taken to addStockPrice")
 	public String addStockPrice(Stock stock) {
 		if (companyDao.existsById(stock.getCompanyCode())) {
 			log.info("{} exists in companies DB",stock.getCompanyCode());
@@ -45,7 +44,7 @@ public class StockService {
 			throw new ApplicationException("company does not exits");
 	}
 	
-	@Timed(value = "updateStockPrice.time", description = "Time taken to updateStockPrice")
+	//@Timed(value = "updateStockPrice.time", description = "Time taken to updateStockPrice")
 	private void updateStockPrice(Stock stock) {
 		log.info("updating the stock price for {} in compnay DB ",stock.getCompanyCode());
 		Company company = companyDao.findById(stock.getCompanyCode()).get();
@@ -53,7 +52,7 @@ public class StockService {
 		companyDao.save(company);
 	}
 
-	@Timed(value = "getStockPricesList.time", description = "Time taken to getStockPricesList")
+	//@Timed(value = "getStockPricesList.time", description = "Time taken to getStockPricesList")
 	public List<StockPrices> getStockPricesList(Integer companycode, Date startdate, Date enddate) {
 		// TODO Auto-generated method stub
 

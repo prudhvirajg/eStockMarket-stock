@@ -2,6 +2,7 @@ package com.estock.stock.controller;
 
 import java.sql.Date;
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -44,6 +45,13 @@ public class StockController {
 			@PathVariable Date enddate) {
 
 		return stockservice.getStockPricesList(companycode, startdate, enddate);
+	}
+	
+	@CrossOrigin
+	@GetMapping(value="/ping")
+	public ResponseEntity<Map<String, String>> ping(){
+		
+		return new ResponseEntity<Map<String,String>>( Map.of("Status","Up"),HttpStatus.OK);
 	}
 
 }
